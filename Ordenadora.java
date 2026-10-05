@@ -1,4 +1,4 @@
-class Ordenadora extends Thread { // Processo independente. Varios Ornedadores podem ser executados em paralelo
+class Ordenadora extends Thread { // Processo independente. Várias Ordenadoras podem ser executados em paralelo
     private byte[] pedaco;
 
     public Ordenadora(byte[] pedaco) { // Construtor
@@ -16,7 +16,7 @@ class Ordenadora extends Thread { // Processo independente. Varios Ornedadores p
     //Divisao Recursiva
     private void mergeSort(byte[] v, int inicio, int fim) {
         if (inicio >= fim) return; // Condicao de parada
-        int meio = (inicio + fim) / 2; // Pega o pedaço e divide
+        int meio = inicio + (fim - inicio) / 2; // Pega o pedaço e divide (sem estourar o int)
         mergeSort(v, inicio, meio); // Ordena esq
         mergeSort(v, meio + 1, fim); // Ordena dir
         intercalar(v, inicio, meio, fim); // Costurar as metades de volta
@@ -29,7 +29,7 @@ class Ordenadora extends Thread { // Processo independente. Varios Ornedadores p
         int k = 0;
 
         // Comparar qual é menor entre i e j e colocar no vetor auxiliar
-        // esse ponteiro avança, garantindo que seja preeenchido em ordem crescente
+        // esse ponteiro avança, garantindo que seja preenchido em ordem crescente
         while (i <= meio && j <= fim) {
             if (v[i] <= v[j]) {
                 aux[k] = v[i];

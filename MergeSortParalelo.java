@@ -7,7 +7,7 @@ public class MergeSortParalelo {
     static Scanner sc = new Scanner(System.in);
     static volatile boolean faltouMemoria = false;
 
-    // rode com: java -Xmx8G MergeSortParalelo
+    // rode com: java -Xmx4G MergeSortParalelo
     public static void main(String[] args) {
         try {
             // ===== Bloco 1: Tamanho limite do vetor =====
